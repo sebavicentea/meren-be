@@ -2,6 +2,8 @@ require('dotenv').config();
 import mongoose from "mongoose";
 import { app } from './app';
 
+const port = process.env.PORT || 3000;
+
 const start = async () => {
   if ( !process.env.JWT_KEY ) {
     throw new Error("JWT_KEY must be defined");
@@ -22,8 +24,8 @@ const start = async () => {
     console.log(err);
   }
 
-  app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}`);
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
   });  
 };
 
